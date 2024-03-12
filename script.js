@@ -20,15 +20,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Function to create a task
-    function createTask(task) {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-            <span>${task.title}</span>
-            <span>${task.description}</span>
-            <button onclick="deleteTask(this)">Delete</button>
-        `;
-        taskList.appendChild(listItem);
-    }
+    // Function to create a task
+function createTask(task) {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `
+        <span>${task.title}</span>
+        <span>${task.description}</span>
+        <button onclick="deleteTask(this)">Delete</button>
+    `;
+    taskList.appendChild(listItem);
 
     // Function to delete a task
     window.deleteTask = function (button) {
