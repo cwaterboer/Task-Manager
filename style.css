@@ -57,6 +57,9 @@ li {
 }
 
 .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
     padding: 10px;
     border-radius: 5px;
@@ -64,13 +67,12 @@ li {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.task-item h2 {
-    margin-top: 0;
+.task-details {
+    flex: 1;
 }
 
-.task-item p {
-    font-size: 14px;
-    margin-bottom: 5px;
+.task-options button {
+    margin-left: 10px;
 }
 
 .priority {
