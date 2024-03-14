@@ -28,16 +28,21 @@ document.addEventListener('DOMContentLoaded', function () {
     function createTask(task) {
         const listItem = document.createElement('li');
         listItem.classList.add('task-item');
+
         const priorityColor = getPriorityColor(task.priority);
 
         listItem.innerHTML = `
-            <h2>${task.title}</h2>
-            <p>${truncateDescription(task.description)}</p>
-            <label class="priority" style="background-color: ${priorityColor}">${task.priority}</label>
-            <span>Due Date: ${task.dueDate}</span>
-            <button onclick="deleteTask(this)">Delete</button>
-            <button onclick="editTask(this)">Edit</button>
-            <button onclick="completeTask(this)">Complete</button>
+            <div class="task-details">
+                <h2>${task.title}</h2>
+                <p>${truncateDescription(task.description)}</p>
+                <label class="priority" style="background-color: ${priorityColor}">${task.priority}</label>
+                <span>Due Date: ${task.dueDate}</span>
+            </div>
+            <div class="task-options">
+                <button onclick="deleteTask(this)">Delete</button>
+                <button onclick="editTask(this)">Edit</button>
+                <button onclick="completeTask(this)">Complete</button>
+            </div>
         `;
         taskList.appendChild(listItem);
     }
@@ -45,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function truncateDescription(description) {
         return description.length > 30 ? description.substring(0, 30) + '...' : description;
     }
-
     function getPriorityColor(priority) {
         switch (priority.toLowerCase()) {
             case 'high':
@@ -63,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    window.deleteTask = function (button) {
-        const listItem = button.parentElement;
+   window.deleteTask = function (button) {
+        const listItem = button.parentElement.parentElement;
         listItem.remove();
     }
 
@@ -84,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function () {
         listItem.remove();
     }
 
-    window.completeTask = function (button) {
-        const listItem = button.parentElement;
+      window.completeTask = function (button) {
+        const listItem = button.parentElement.parentElement;
         listItem.classList.toggle('completed');
     }
 
