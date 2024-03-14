@@ -27,10 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function createTask(task) {
         const listItem = document.createElement('li');
+        listItem.classList.add('task-item');
+        const priorityColor = getPriorityColor(task.priority);
+
         listItem.innerHTML = `
-            <span>${task.title}</span>
-            <span>${task.description}</span>
-            <span>Priority: ${task.priority}</span>
+            <h2>${task.title}</h2>
+            <p>${truncateDescription(task.description)}</p>
+            <label class="priority" style="background-color: ${priorityColor}">${task.priority}</label>
             <span>Due Date: ${task.dueDate}</span>
             <button onclick="deleteTask(this)">Delete</button>
             <button onclick="editTask(this)">Edit</button>
@@ -39,10 +42,32 @@ document.addEventListener('DOMContentLoaded', function () {
         taskList.appendChild(listItem);
     }
 
+    function truncateDescription(description) {
+        return description.length > 30 ? description.substring(0, 30) + '...' : description;
+    }
+
+    function getPriorityColor(priority) {
+        switch (priority.toLowerCase()) {
+            case 'high':
+                return 'red';
+            case 'medium':
+                return 'yellow';
+            case 'low':
+                return 'green';
+            case 'completed':
+                return 'purple';
+            case 'complete':
+                return 'blue';
+            default:
+                return 'black';
+        }
+    }
+
     window.deleteTask = function (button) {
         const listItem = button.parentElement;
         listItem.remove();
     }
+
 
     window.editTask = function (button) {
         const listItem = button.parentElement;
