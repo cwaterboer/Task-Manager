@@ -55,3 +55,30 @@ li {
     display: flex;
     justify-content: space-between;
 }
+
+.task-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-item h2 {
+    margin-top: 0;
+}
+
+.task-item p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.priority {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
