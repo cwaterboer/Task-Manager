@@ -71,8 +71,13 @@ li {
     flex: 1;
 }
 
+.task-options {
+    display: flex;
+    flex-direction: column;
+}
+
 .task-options button {
-    margin-left: 10px;
+    margin-top: 5px; /* Add margin between buttons */
 }
 
 .priority {
